@@ -1,0 +1,60 @@
+{% extends "network/layout.html" %}
+{%load static%}
+{% block body %}
+    <div id="posts_page">
+        {%if user.is_authenticated %}
+            <div class="container">
+                <form id="new_post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <textarea class="form-control" autofocus type="text" name="body" placeholder="What are you thinking?" id="body" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Post">
+                </form>
+            </div>
+        {% endif %} 
+    </div>
+
+    <div id="profile_page">
+        <div class="container">
+            <div class="card p-3">
+                <div class="d-flex align-items-center">
+                    <div class="image" id = "image"> <img src="https://picsum.photos/155/155" class="rounded" width="155"> </div>
+                    <div class="ml-3 w-100">
+                        <h4 class="mb-0 mt-0" id = "username_display"></h4>
+                        <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats" id = "info"></div>
+                        <div class="button mt-2 d-flex flex-row align-items-center" id="follow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id = "posts_container">
+        <div id="posts"></div>
+        <div id="pagination"></div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id= "edit_post" >Save changes</button>
+        </div>
+      </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block script%}
+    <script defer src="{% static 'network/index.js' %}"></script>
+{% endblock %}

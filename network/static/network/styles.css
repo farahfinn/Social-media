@@ -1,0 +1,40 @@
+body {
+    border-radius: 10px
+}
+.card{
+    margin: 8px;
+}
+.container {
+    margin-top: 10px;
+}
+.stats {
+    background: #f2f5f8 !important;
+    color: #000 !important
+}
+
+.follows {
+    font-size: 15px;
+    color: #a1aab9 !important
+}
+
+.number1 {
+    font-weight: 500
+}
+
+.followers {
+    font-size: 15px;
+    color: #a1aab9
+}
+
+.number2 {
+    font-weight: 500
+}
+
+.rating {
+    font-size: 10px;
+    color: #a1aab9
+}
+
+.number3 {
+    font-weight: 500
+}
